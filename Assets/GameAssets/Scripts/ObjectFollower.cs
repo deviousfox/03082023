@@ -6,6 +6,7 @@ namespace GameAssets.Scripts
     {
         [SerializeField] private Transform target;
         [SerializeField] private float followSpeed;
+        [SerializeField] private Vector3 offset;
         private Transform _self;
 
         private void Awake()
@@ -16,7 +17,7 @@ namespace GameAssets.Scripts
         private void Update()
         {
             if (target)
-                _self.position = Vector3.Lerp(_self.position, target.position, followSpeed * Time.deltaTime);
+                _self.position = Vector3.Lerp(_self.position, target.position+offset, followSpeed * Time.deltaTime);
         }
     }
 }
